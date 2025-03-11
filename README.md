@@ -1,6 +1,6 @@
-# Sentrix-JS
+# Sentrix.js
 
-Sentrix-JS is a TypeScript utility library for interacting with the Sentrix API. It provides modular access to various API endpoints, such as `User`, `Stats`, `Purchases`, `Public`, `Product`, and `Hub`, with an easy way to configure authentication.
+Sentrix.js is a TypeScript utility library for interacting with the Sentrix API. It provides modular access to various API endpoints, such as `User`, `Stats`, `Purchases`, `Public`, `Product`, and `Hub`, with an easy way to configure authentication.
 
 ## Installation
 
