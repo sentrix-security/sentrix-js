@@ -1,7 +1,7 @@
 import sentrixApiClient, {SentrixApiClient} from "../client";
 
-export class PurchasesModule {
-    private static instance: PurchasesModule;
+export class ProductsModule {
+    private static instance: ProductsModule;
     private apiClient : SentrixApiClient;
 
     constructor(client? : SentrixApiClient) {
