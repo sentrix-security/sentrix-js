@@ -1,8 +1,37 @@
 import sentrixApiClient, {SentrixApiClient} from "../client";
 
+export type DiscordUser = {
+    "id": string,
+    "username": string,
+    "discriminator": string,
+    "avatar": string,
+    "verified": boolean | undefined,
+    "email": string | undefined,
+    "flags": number | undefined,
+    "banner": string | undefined,
+    "accent_color": number | undefined,
+    "premium_type": number | undefined,
+    "public_flags": number | undefined,
+}
+
+export type PermissionsObject = {
+    permissions_staff: number,
+    permissions_admin: number,
+    permissions_hub: {
+        [key: number]: number
+    }
+}
+
 export type LoginDiscordResponse = {
     success: boolean;
     access_token: string;
+    discord_user: DiscordUser,
+    sentrix_user: {
+        id: number,
+        username: string,
+        roblox_user_id: string,
+    },
+    permissions: PermissionsObject,
 }
 export type LinkRobloxResponse = {
     success: boolean;
