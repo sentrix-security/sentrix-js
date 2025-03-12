@@ -78,6 +78,22 @@ export class SentrixApiClient {
     })
   }
 
+  public async put<TResponse = any>(endpoint: string, additionalConfig? : AxiosRequestConfig | undefined) : Promise<AxiosResponse<TResponse>> {
+    return this.wrapRequest({
+      ...additionalConfig,
+      method: "PUT",
+      url: endpoint,
+    })
+  }
+
+  public async delete<TResponse = any>(endpoint: string, additionalConfig? : AxiosRequestConfig | undefined) : Promise<AxiosResponse<TResponse>> {
+    return this.wrapRequest({
+      ...additionalConfig,
+      method: "DELETE",
+      url: endpoint,
+    })
+  }
+
   private async wrapRequest(request : AxiosRequestConfig) {
     const {headers, ...requestInit} = request;
     const defaultedHeaders = request.headers ?? {};
