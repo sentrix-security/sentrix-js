@@ -4,10 +4,12 @@ Sentrix.js is a TypeScript utility library for interacting with the Sentrix API.
 
 ## Installation
 
-TODO: Publish to GitHub packages rather than NPM --> https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages
+As this is a private package it cannot be installed just by the package name.
+The full repository URL has to be used:
 
-I dont want that stuff to be public.
-
+````bash
+npm install git+ssh://git@github.com:sentrix-security/sentrix-js.git
+````
 ## Usage
 
 The API client can either be instantiated normally ore used as a global instance.
