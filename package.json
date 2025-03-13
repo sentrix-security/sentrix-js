@@ -9,7 +9,7 @@
     "ci": "npm run build",
     "prepare": "npm run build"
   },
-  "type": "module",
+  "type": "commonjs",
   "main": "./src/index.js",
   "keywords": [],
   "author": "",
