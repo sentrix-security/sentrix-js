@@ -54,26 +54,14 @@ export class PurchasesModule {
 
     public async listPurchases(paginationParams : PaginatedRequestParams) : Promise<PaginatedResult<ListPurchaseRecord>> {
         const response = await this.apiClient.get<PaginatedResult<ListPurchaseRecord>>("/v1/purchases", {
-            params: {
-                page: paginationParams.page,
-                pageSize: paginationParams.pageSize,
-                filterField: paginationParams.filterField,
-                filterMode: paginationParams.filterMode,
-                filter: paginationParams.filterMode,
-            }
+            params: paginationParams
         })
         return response.data;
     }
 
     public async listMyPurchases(paginationParams : PaginatedRequestParams) : Promise<PaginatedResult<ListMyPurchaseRecord>> {
         const response = await this.apiClient.get<PaginatedResult<ListMyPurchaseRecord>>("/v1/purchases/my", {
-            params: {
-                page: paginationParams.page,
-                pageSize: paginationParams.pageSize,
-                filterField: paginationParams.filterField,
-                filterMode: paginationParams.filterMode,
-                filter: paginationParams.filterMode,
-            }
+            params: paginationParams
         })
         return response.data;
     }
