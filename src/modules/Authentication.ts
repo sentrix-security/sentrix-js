@@ -22,19 +22,22 @@ export type PermissionsObject = {
     }
 }
 
+export type AuthSentrixUser = {
+    id: number,
+    username: string,
+    roblox_user_id: string,
+}
+
 export type LoginDiscordResponse = {
     success: boolean;
     access_token: string;
     discord_user: DiscordUser,
-    sentrix_user: {
-        id: number,
-        username: string,
-        roblox_user_id: string,
-    },
+    sentrix_user: AuthSentrixUser,
     permissions: PermissionsObject,
 }
 export type LinkRobloxResponse = {
     success: boolean;
+    sentrix_user: AuthSentrixUser,
 }
 export type LogoutResponse = {
     success: boolean;
