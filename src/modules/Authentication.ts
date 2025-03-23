@@ -50,17 +50,17 @@ export class AuthenticationModule {
     }
 
     public async loginDiscord(discordAccessToken : string) : Promise<LoginDiscordResponse> {
-        const httpResponse = await this.apiClient.get<LoginDiscordResponse>("/v1/auth/login/discord")
+        const httpResponse = await this.apiClient.post<LoginDiscordResponse>("/v1/auth/login/discord")
         return httpResponse.data;
     }
 
     public async linkRoblox(robloxAccessToken : string) : Promise<LinkRobloxResponse> {
-        const httpResponse = await this.apiClient.get<LinkRobloxResponse>("/v1/auth/link/roblox")
+        const httpResponse = await this.apiClient.post<LinkRobloxResponse>("/v1/auth/link/roblox")
         return httpResponse.data;
     }
 
     public async logout() : Promise<LogoutResponse> {
-        const httpResponse = await this.apiClient.get<LogoutResponse>("/v1/auth/logout")
+        const httpResponse = await this.apiClient.post<LogoutResponse>("/v1/auth/logout")
         return httpResponse.data;
     }
 }
