@@ -1,5 +1,6 @@
 import sentrixApiClient, {SentrixApiClient} from "../client";
 import {EnumWhitelistType, PaginatedRequestParams, PaginatedResult} from "../common/commonTypes";
+import {ListHubPurchasesRecord} from "./Hubs";
 
 export type PurchaseRecord = {
     id: number,
@@ -7,7 +8,7 @@ export type PurchaseRecord = {
     whitelisted_type: EnumWhitelistType,
     product: {
         id: number,
-        username: string
+        name: string
     },
     purchased_by: {
         id: number,
@@ -53,28 +54,20 @@ export class PurchasesModule {
 
     public async listPurchases(paginationParams : PaginatedRequestParams) : Promise<PaginatedResult<ListPurchaseRecord>> {
         const response = await this.apiClient.get<PaginatedResult<ListPurchaseRecord>>("/v1/purchases", {
-            params: {
-                page: paginationParams.page,
-                pageSize: paginationParams.pageSize,
-                filterField: paginationParams.filterField,
-                filterMode: paginationParams.filterMode,
-                filter: paginationParams.filterMode,
-            }
+            params: paginationParams
         })
         return response.data;
     }
 
     public async listMyPurchases(paginationParams : PaginatedRequestParams) : Promise<PaginatedResult<ListMyPurchaseRecord>> {
         const response = await this.apiClient.get<PaginatedResult<ListMyPurchaseRecord>>("/v1/purchases/my", {
-            params: {
-                page: paginationParams.page,
-                pageSize: paginationParams.pageSize,
-                filterField: paginationParams.filterField,
-                filterMode: paginationParams.filterMode,
-                filter: paginationParams.filterMode,
-            }
+            params: paginationParams
         })
         return response.data;
+    }
+
+    public async listPurchasesForHub(hubId: number, params : PaginatedRequestParams) : Promise<PaginatedResult<ListHubPurchasesRecord>> {
+        return this.apiClient.hubs.listPurchases(hubId, params);
     }
 
     public async getPurchaseById(id: number) : Promise<PurchaseRecord> {
