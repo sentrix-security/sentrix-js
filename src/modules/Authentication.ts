@@ -27,6 +27,7 @@ export type AuthSentrixUser = {
     username: string,
     roblox_user_id: string,
     discord_user_id: string,
+    email: string
 }
 
 export type LoginDiscordResponse = {
