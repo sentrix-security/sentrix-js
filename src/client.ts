@@ -5,6 +5,7 @@ import {HubsModule} from "./modules/Hubs";
 import {ProductsModule} from "./modules/Products";
 import {PurchasesModule} from "./modules/Purchases";
 import {AdminModule} from "./modules/Admin";
+import {UsersModule} from "./modules/Users";
 
 export class SentrixApiClient {
   private static instance: SentrixApiClient;
@@ -19,6 +20,7 @@ export class SentrixApiClient {
   public products : ProductsModule = new ProductsModule(this);
   public purchases : PurchasesModule = new PurchasesModule(this);
   public admin : AdminModule = new AdminModule(this);
+  public users : UsersModule = new UsersModule(this);
 
   private constructor(baseUrl? : string) {
     this.axiosInstance = axios.create({
