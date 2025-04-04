@@ -26,6 +26,8 @@ export type AuthSentrixUser = {
     id: number,
     username: string,
     roblox_user_id: string,
+    discord_user_id: string,
+    email: string
 }
 
 export type LoginDiscordResponse = {
@@ -34,6 +36,7 @@ export type LoginDiscordResponse = {
     discord_user: DiscordUser,
     sentrix_user: AuthSentrixUser,
     permissions: PermissionsObject,
+    created_new: boolean,
 }
 export type LinkRobloxResponse = {
     success: boolean;
